@@ -47,51 +47,19 @@
 				<artifactId>jfreechart</artifactId>
 				<version>${jfree.version}</version>
 			</dependency>
-			<!-- 3thd lib-->
-			<dependency>
-				<groupId>com.mainbo.pageoffice</groupId>
-				<artifactId>pageoffice</artifactId>
-				<version>${pageoffice.version}</version>
-			</dependency>
 
-			<dependency>
-				<groupId>com.mainbo.jy</groupId>
-				<artifactId>jy-utils</artifactId>
-				<version>${jy-utils.version}</version>
-			</dependency>
-		   
-			<dependency>
-				<groupId>com.mainbo.jy</groupId>
-				<artifactId>jy-test</artifactId>
-				<version>${jy-test.version}</version>
-			</dependency>
-			
-			<dependency>
-                <groupId>com.mainbo</groupId>
-                <artifactId>test</artifactId>
-               <version>${jy-test.version}</version>
-                <scope>test</scope>
-            </dependency>			
-			
-			<dependency>
-		        <groupId>org.eclipse.jetty</groupId>
-		        <artifactId>jetty-webapp</artifactId>
-		        <version>${jetty.version}</version>
-		        <scope>provided</scope>
-		    </dependency>
-		    <dependency>
-		        <groupId>org.eclipse.jetty</groupId>
-		        <artifactId>jetty-jsp</artifactId>
-		        <version>${jetty.version}</version>
-		        <scope>provided</scope>
-		    </dependency>
-	 </dependencies>
+		<dependency>
+			<groupId>com.mainbo.jy</groupId>
+			<artifactId>jy-test</artifactId>
+			<version>${jy-test.version}</version>
+			<scope>test</scope>
+		</dependency>
+        </dependencies>
 	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>com.mainbo.jy</groupId>
 			<artifactId>jy-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.mainbo</groupId>

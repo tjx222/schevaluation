@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 
 import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 
-
 /**
  * <pre>
  *  解决tomcat 警告
@@ -30,31 +29,27 @@ import com.mysql.jdbc.AbandonedConnectionCleanupThread;
  */
 public class MysqlContextFinalizer implements ServletContextListener {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MysqlContextFinalizer.class);
+  private static final Logger LOGGER = LoggerFactory
+      .getLogger(MysqlContextFinalizer.class);
 
-    @Override
-	public void contextInitialized(ServletContextEvent sce) {
-    }
+  @Override
+  public void contextInitialized(ServletContextEvent sce) {
+  }
 
-    @Override
-	public void contextDestroyed(ServletContextEvent sce) {
-        Enumeration<Driver> drivers = DriverManager.getDrivers();
-        Driver d = null;
-        while(drivers.hasMoreElements()) {
-            try {
-                d = drivers.nextElement();
-                DriverManager.deregisterDriver(d);
-                LOGGER.warn(String.format("Driver %s deregistered", d));
-            } catch (SQLException ex) {
-                LOGGER.warn(String.format("Error deregistering driver %s", d), ex);
-            }
-        }
-        try {
-            AbandonedConnectionCleanupThread.shutdown();
-        } catch (InterruptedException e) {
-        	LOGGER.warn("SEVERE problem cleaning up: " + e.getMessage());
-            e.printStackTrace();
-        }
+  @Override
+  public void contextDestroyed(ServletContextEvent sce) {
+    Enumeration<Driver> drivers = DriverManager.getDrivers();
+    Driver d = null;
+    while (drivers.hasMoreElements()) {
+      try {
+        d = drivers.nextElement();
+        DriverManager.deregisterDriver(d);
+        LOGGER.warn(String.format("Driver %s deregistered", d));
+      } catch (SQLException ex) {
+        LOGGER.warn(String.format("Error deregistering driver %s", d), ex);
+      }
     }
+    AbandonedConnectionCleanupThread.checkedShutdown();
+  }
 
 }
