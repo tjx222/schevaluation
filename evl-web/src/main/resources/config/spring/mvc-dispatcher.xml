@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <bean id="DisableCircularReferenceDetect" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+	    <property name="staticField" value="com.alibaba.fastjson.serializer.SerializerFeature.DisableCircularReferenceDetect"></property>
+	</bean>
+	<!-- json 过滤器 -->
+	<bean id="pageJsonFilter" class="com.mainbo.jy.common.web.json.PageJsonFilter"/>
+	
+	<context:property-placeholder ignore-unresolvable="true"/>
+	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
+	<mvc:annotation-driven>
+		<mvc:async-support default-timeout="20000" task-executor="msgThreadPool"></mvc:async-support>
+		<mvc:message-converters register-defaults="true">
+	        <!-- StringHttpMessageConverter编码为UTF-8，防止乱码 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+                <property name = "supportedMediaTypes">
+                    <list>
+                        <bean class="org.springframework.http.MediaType">
+                            <constructor-arg index="0" value="text"/>
+                            <constructor-arg index="1" value="plain"/>
+                            <constructor-arg index="2" value="UTF-8"/>
+                        </bean>
+                        <bean class="org.springframework.http.MediaType">
+                            <constructor-arg index="0" value="*"/>
+                            <constructor-arg index="1" value="*"/>
+                            <constructor-arg index="2" value="UTF-8"/>
+                        </bean>
+                    </list>
+                </property>
+            </bean>
+            <!-- 文件下载 -->
+			<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/> 
+            <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+            <bean id="fastJsonHttpMessageConverter" class="com.mainbo.jy.common.web.json.FastJsonWithFilterHttpMessageConverter" >
+                <property name="serializeFilter" ref="pageJsonFilter"></property>
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+		      <property name="features">
+		        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
+		           <value>DisableCircularReferenceDetect</value>
+		        </array>
+		      </property>
+		   </bean>
+    	</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<mvc:interceptors>
+	 	<!-- 防重复提交拦截器  -->
+		<bean class="com.mainbo.jy.common.web.interceptor.AvoidDuplicateSubmissionInterceptor"></bean>
+		<!-- 视图名称拦截器 -->
+		<!-- <bean class="com.mainbo.jy.common.web.interceptor.ViewNameInterceptor"></bean> -->
+	</mvc:interceptors>
+	
+	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
+	<context:component-scan base-package="com.mainbo.jy.**.controller" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	<mvc:view-controller path="/index" view-name="index" />
+	
+	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<mvc:resources mapping="/static/**" location="/static/"/>  
+	<mvc:default-servlet-handler/>
+
+
+	    <!-- 内容协商管理器  -->
+    <!--1、首先检查路径扩展名（如my.pdf）；2、其次检查Parameter（如my?format=pdf）；3、检查Accept Header-->
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
+        <property name="favorPathExtension" value="true"/>
+        <!-- 用于开启 /userinfo/123?format=json 的支持 -->
+        <property name="favorParameter" value="true"/>
+        <property name="parameterName" value="_fmt"/>
+        <!-- 是否忽略Accept Header -->
+        <property name="ignoreAcceptHeader" value="false"/>
+
+        <property name="mediaTypes"> <!--扩展名到MIME的映射；favorPathExtension, favorParameter是true时起作用  -->
+            <value>
+                json=application/json
+                jsonp=application/javascript
+                xml=application/xml
+                html=text/html
+            </value>
+        </property>
+        <!-- 默认的content type -->
+        <property name="defaultContentType" value="text/html"/>
+    </bean>
+
+    <!-- ========================= VIEW定义 ========================= -->
+    <!-- 内容协商视图解析器；根据客户端的不同的请求决定不同的 view进行响应, 如 /blog/1.json /blog/1.xml -->
+    <!-- 会自动根据解析的contentType来决定使用哪个视图解析器（默认使用整个web应用中的viewResolver） -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:order="0">
+        <!-- 内容协商管理器 用于决定media type -->
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <!-- 默认视图 放在解析链最后 -->
+        <property name="defaultViews">
+            <list>
+                <!--<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>-->
+                <bean class="com.mainbo.jy.common.web.json.FastJsonJsonWithFilterView" >
+	               <property name="serializeFilter" ref="pageJsonFilter"></property>
+	                <property name="features">
+				        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
+				           <value>DisableCircularReferenceDetect</value>
+				        </array>
+			      </property>
+                </bean>
+                <bean class="com.mainbo.jy.common.web.json.JsonpWithFilterView" >
+	               <property name="serializeFilter" ref="pageJsonFilter"></property>
+	                <property name="features">
+				        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
+				           <value>DisableCircularReferenceDetect</value>
+				        </array>
+			      </property>
+                </bean>
+                <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+						<property name="marshaller">
+							<bean id="xStreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+										<property name="autodetectAnnotations" value="true" />
+									</bean>
+						</property>
+						<property name="contentType" value="application/xml" />
+				</bean>
+            </list>
+        </property>
+    </bean>
+
+	<!--  文件查看服务   -->
+	<bean class="com.mainbo.jy.manage.resources.service.impl.CompositeResViewServiceImpl">
+		<property name="viewServices">
+			<list>
+				<bean class="com.mainbo.jy.manage.resources.service.impl.ImageResViewServiceImpl"></bean>
+				<bean class="com.mainbo.jy.manage.resources.service.impl.VideoResViewServiceImpl"></bean>
+			</list>
+		</property>
+	</bean>
+
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"  p:order="1">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="contentType" value="text/html"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+   </bean>
+	
+    <!-- 文件上传相关 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--one of the properties available;the maximum upload size in bytes 100M-->
+        <property name="maxUploadSize" value="104857600"/>
+		<property name="maxInMemorySize">  
+            <value>4096</value>  
+        </property>  
+	</bean>
+
+    <!-- 控制器异常处理 -->
+<!--     <bean id="exceptionHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+    </bean> -->
+</beans>

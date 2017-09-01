@@ -1,0 +1,50 @@
+<assembly
+		xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+		<id>release</id>
+		<formats>
+			<format>tar.gz</format>
+		</formats>
+		<fileSets>
+			<fileSet>
+				<directory>${project.basedir}\target\classes</directory>
+				<includes>
+					<!-- evl模板配置文件 -->
+					<include>config\spring\spring-nav-evl.xml</include>
+					<include>config\ftl\**</include>
+					<include>config\sms\**</include>
+					<include>config\security\evl.ini</include>
+				</includes>
+				<outputDirectory>\WEB-INF\classes\</outputDirectory>
+			</fileSet>
+			<fileSet>
+				<directory>${project.basedir}\target\classes\com\mainbo\jy\evl</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<outputDirectory>\WEB-INF\classes\com\mainbo\jy\evl\</outputDirectory>
+			</fileSet>
+			<fileSet>
+				<directory>${project.basedir}\src\main\webapp</directory>
+				<includes>
+					<include>static\modules\evl\**</include>
+					<include>WEB-INF\views\evl\**</include>
+					<include>static\lib\echarts\echart-all.js</include>
+				</includes>
+				<outputDirectory>\</outputDirectory>
+			</fileSet>
+		</fileSets>
+		<dependencySets>
+			<dependencySet>
+				<useProjectArtifact>false</useProjectArtifact>
+				<outputDirectory>\WEB-INF\lib</outputDirectory><!-- 将scope为runtime的依赖包打包到lib目录下。 -->
+				<includes>
+					<include>com.github.abel533:ECharts</include>
+					<include>org.jfree:jfreechart</include>
+					<include>org.jfree:jcommon</include>
+				</includes>
+			</dependencySet>
+		</dependencySets>
+</assembly>
+

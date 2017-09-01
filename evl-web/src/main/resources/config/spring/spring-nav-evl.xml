@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:navs="http://www.mainbo.com/schema/navs"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.mainbo.com/schema/navs http://www.mainbo.com/schema/navs-1.0.xsd">
+	<navs:nav-context>
+
+	<!-- 评教系统首页 -->
+		<navs:nav id="evl_index" extend="index_select">
+			<navs:elem name="评教系统" href="jy/evl/index" />
+		</navs:nav>
+		
+		<!-- 评教系统首页 -->
+		<navs:nav id="evl" extend="tch_index">
+			<navs:elem name="评教系统" href="jy/evl/index" />
+		</navs:nav>
+
+		<!-- 结果统计 -->
+		<navs:nav id="evl_result" extend="evl">
+			<navs:elem name="结果统计" href="jy/evl/result/resultIndex" />
+		</navs:nav>
+
+		<!-- 分析报告 -->
+		<navs:nav id="evl_analyze" extend="evl">
+			<navs:elem name="分析报告" href="jy/evl/analyze/analyzeIndex" />
+		</navs:nav>
+		<navs:nav id="evl_analyze_pt" extend="tch_index">
+			<navs:elem name="分析报告" href="jy/evl/analyze/analyzeInfo?questionnairesId={:questionnairesId}&amp;mark={:mark}" />
+		</navs:nav>
+		
+		<!-- 学生管理 -->
+		<navs:nav id="evl_manage" extend="evl">
+			<navs:elem name="学生管理 " href="jy/evl/manage/students" />
+		</navs:nav>
+		
+		<!-- 设计问卷 -->
+		<navs:nav id="sjwj" extend="evl">
+			<navs:elem name="设计问卷" href="jy/evl/question/indexQuestions" />
+		</navs:nav>
+		<!-- 设计问卷 -->
+		<navs:nav id="ckpjzh" extend="sjwj">
+			<navs:elem name="查看评教账号" />
+		</navs:nav>
+		<!-- 设计问卷 -->
+		<navs:nav id="ckpjqk" extend="sjwj">
+			<navs:elem name="查看评教情况" />
+		</navs:nav>
+		
+		<!-- 设计问卷第一步-->
+		<navs:nav id="sjwj_1" extend="sjwj">
+			<navs:elem name="第一步：相关设置"/>
+		</navs:nav>
+		<!-- 设计问卷第二步-->
+		<navs:nav id="sjwj_2" extend="sjwj">
+			<navs:elem name="第二步：设计内容"/>
+		</navs:nav>
+	</navs:nav-context>
+</beans>

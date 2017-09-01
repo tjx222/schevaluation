@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		version="2.0" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+    <tlib-version>2.0</tlib-version>
+	<short-name>jy</short-name>
+	<uri>/jy-tags</uri>
+	<tag>
+		<name>nav</name>
+		<tag-class>com.mainbo.jy.common.web.tag.NavTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>className</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>delimiter</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>hidden</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>Parameter tag based on the JSTL c:param tag.  The sole purpose is to 
+		support params inside the spring:url tag.</description>
+		<name>param</name>
+		<tag-class>org.springframework.web.servlet.tags.ParamTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>The name of the parameter.</description>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>The value of the parameter.</description>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>get the value by id. id type is Integer</description>
+		<name>di</name>
+		<tag-class>com.mainbo.jy.common.web.tag.IntegerKeyDataTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>The id of the value.</description>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>The name of the value to save.</description>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	    <attribute>
+			<description>The type of the value.</description>
+			<name>className</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>get the value by id. id type is Integer</description>
+		<name>ds</name>
+		<tag-class>com.mainbo.jy.common.web.tag.StringKeyDataTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>The id of the value.</description>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>The name of the value to save.</description>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<description>The type of the value.</description>
+			<name>className</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<description>get the value by id. id type is Integer</description>
+		<name>dic</name>
+		<tag-class>com.mainbo.jy.manage.meta.tag.MetaParseTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>The id of the sysdic.</description>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

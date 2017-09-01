@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="evl-bus">
+    <diskStore path="java.io.tmpdir"/>
+    <!-- sql mapping缓存  没必要过期 -->
+    <cache name="sqlMappingCache"
+           maxEntriesLocalHeap="10000"
+           overflowToDisk="false"
+           eternal="true"
+		   memoryStoreEvictionPolicy="FIFO"
+           statistics="true"/>
+ 
+    <!-- 登录记录缓存 锁定10分钟 -->
+    <cache name="loginRecordCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+    
+     <!-- kpi考核方案缓存 锁定10分钟 -->
+    <cache name="kpiSolutionCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+     <!-- kpi数据采集缓存 -->
+    <cache name="KPI-COLLECT-DATA-CACHE"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+     <!-- report数据采集缓存 -->
+    <cache name="report"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+	<!-- 消息数目缓存 锁定10分钟 -->
+    <cache name="messageNumCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+    
+    <!-- evl 问卷缓存 -->
+    <cache name="evl_question_cache"
+           maxEntriesLocalHeap="20000"
+           eternal="true"
+           overflowToDisk="true"
+           statistics="true">
+    </cache>
+    <!-- evl 问卷缓存 -->
+    <cache name="evl_result_cache"
+           maxEntriesLocalHeap="20000"
+           eternal="true"
+           overflowToDisk="true"
+           statistics="true">
+    </cache>
+
+      <!-- 元数据缓存 -->
+    <cache name="META_CACHE"
+           maxEntriesLocalHeap="20000"
+           eternal="true"
+           overflowToDisk="true"
+           statistics="true">
+    </cache>
+    
+</ehcache>

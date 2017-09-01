@@ -1,0 +1,70 @@
+<base href="${ctx}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<link rel="stylesheet" href="${ctxStatic }/common/css/index.css" media="screen">
+<link rel="stylesheet" href="${ctxStatic }/common/css/common.css" media="screen"> 
+<link rel="stylesheet" href="${ctxStatic }/common/js/dialog/dialog.css" media="screen">
+<link rel="stylesheet" href="${ctxStatic }/common/css/reset.css" media="all">
+<script src="${ctxStatic }/lib/requirejs/esl.min.js"></script>
+<script src="${ctxStatic }/lib/jquery/jquery-1.11.2.min.js"></script> 
+<script src="${ctxStatic }/common/js/dialog/dialog.js"></script>
+<script src="${ctxStatic }/common/js/comm.js"></script>
+<script type="text/javascript">
+var _WEB_ROOT_ = '${ctx}';
+var _WEB_CONTEXT_ = '${pageContext.request.contextPath }';
+var _STATIC_BASEPATH_ =  _WEB_CONTEXT_ +"/${ctxStatic}";
+require.config({
+    'packages': [
+		{
+		    'name': 'common',
+		    'location': '${ctx}${ctxStatic}/common/js',
+		    'main': 'global'
+		},
+        {
+            'name': 'hogan',
+            'location': '${ctx}${ctxStatic}/lib/hogan',
+            'main': 'hogan'
+        },
+        {
+            'name': 'zxui',
+            'location': '${ctx}${ctxStatic}/lib/zxui',
+            'main': 'Control'
+        },
+        {
+            'name': 'editor',
+            'location': '${ctx}${ctxStatic}/lib/kindeditor',
+            'main': 'editor'
+        },
+        {
+            'name': 'jp',
+            'location': '${ctx}${ctxStatic}/lib/jquery'
+        },
+        {
+            'name': 'uploader',
+            'location': '${ctx}${ctxStatic}/lib/plupload',
+            'main':'uploader'
+        },
+        {
+        	'name': 'AmazeUI',
+        	'location': '${ctx}${ctxStatic}/lib/AmazeUI/js'
+        },
+        {
+            'name': 'echarts',
+            'location': '${ctx}${ctxStatic}/lib/echart',
+        }
+    ],
+    shim:{
+		'kindeditor':{exports: 'KindEditor'},
+		'plupload':{deps:['jquery'],exports: 'plupload'},
+		'kindeditorLang':['kindeditor'],
+		'pluploadLang':['plupload']
+	},
+	paths:{
+		'kindeditor':'${ctx}${ctxStatic}/lib/kindeditor/kindeditor-min',
+		'kindeditorLang':'${ctx}${ctxStatic}/lib/kindeditor/zh_CN',
+		'plupload':'${ctx}${ctxStatic}/lib/plupload/plupload.full.min',
+		'pluploadLang':'${ctx}${ctxStatic}/lib/plupload/zh_CN'
+	}
+});
+</script>

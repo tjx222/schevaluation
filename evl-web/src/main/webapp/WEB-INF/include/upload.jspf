@@ -1,0 +1,2 @@
+<script src="${ctxStatic }/lib/plupload/plupload.full.min.js"></script>
+<script src="${ctxStatic }/lib/plupload/zh_CN.js"></script>

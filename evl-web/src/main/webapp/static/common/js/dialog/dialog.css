@@ -1,0 +1,80 @@
+.mask,.mask1{
+	background: none repeat scroll 0 0 #000;
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display:none;
+}
+.mask{
+	z-index:101;
+}
+.mask1{
+    z-index:103;
+}
+.hidden{
+	overflow:hidden;
+}
+ .dialog{
+	display:none;
+	width:562px;
+	height:427px;
+	position: fixed; 
+	background:#fff; 
+	z-index:102;
+	-webkit-box-shadow: 1px 1px 9px #505050; 
+	-moz-box-shadow: 1px 1px 9px #505050; 
+	box-shadow: 1px 1px 9px #505050;
+	/* 
+	top:50%;
+	left:50%;
+	margin-left:-281px;
+	margin-top:-213.5px; */
+}
+.dialog_head{
+	width:550px;
+	height:39px;  
+	border-bottom:1px #fea97a dashed;
+	position: relative;
+	color: #44484d;
+	font-size: 16px;
+	line-height: 39px;
+	padding-left: 12px;
+	cursor: move;
+}
+.dialog_head span b{
+	color:#9d9d9d;
+}
+.dialog_close{
+	width:38px;
+	height:38px;
+	display:block;
+	background:url(../../images/common_bg.png);
+	background-position:-208px -126px;
+	position: absolute;
+	right:-15px;
+	top: -15px;
+	cursor: pointer;
+}
+.dialog_btn{
+	width: 80px;
+	height: 29px;
+	background:#27bb8b;
+	color:#fff;
+	display: block;
+	margin:0 auto;
+	border:0;
+	font-size: 14px;
+	cursor: pointer;
+}
+.dialog_content{
+	width: 100%;
+   	position: absolute;
+  	top: 40px;
+   	bottom: 0px;
+   	left: 0px;
+}

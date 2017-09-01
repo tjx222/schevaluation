@@ -1,0 +1,165 @@
+html,body{
+	font-family: "Microsoft Yahei";
+	background: #fff;
+	color: #474747;
+}
+.wraper{
+	width: 100%;
+	height: 900px;
+	background: url('../images/loginbg1.jpg') repeat left top;
+	position: relative;
+	padding-top: 25px;
+}
+.wraper .logo{
+	width: 134px;
+	height: 45px;
+	background: url('../../../../common/images/logo.png') no-repeat;
+	margin-left: 23%;
+}
+.wraper .logo1{
+	width: 324px;
+	height: 34px;
+	position: absolute;
+	background: url('../images/titlelogo.png') no-repeat;
+	left: 50%;
+	margin-left: -162px;
+	top: 100px;
+}
+.wraper .login{
+	position: absolute;
+	left: 50%;
+	width: 384px;
+	height: 328px;
+	margin-left: -192px;
+	background: url('../images/loginbg2.png') no-repeat;
+	top:90px;
+	position: relative;
+}
+.wraper .login .txt{
+	width: 148px;
+	height: 34px;
+	background: none;
+	margin-top: 6px;
+	border:none;
+	font-size: 16px;
+	line-height: 34px;
+	padding-left: 10px;
+}
+.wraper .login .a_retrieve{
+	padding-top: 10px;
+	display: block;
+	font-size: 13px;
+	color:#fff;
+	position: absolute;
+	right: 60px;
+	top: 150px;
+	text-decoration: underline;
+}
+.wraper .login .btn{
+	width: 276px;
+	height: 40px;
+	background: url('../images/dl.png') no-repeat;
+	border:none;
+	margin: 40px 0 25px 45px;
+}
+.wraper .login .check{
+	margin-left: 115px;
+	margin-top: -0.5px;
+}
+.wraper .login_1{
+	width: 772px;
+	height: 128px;
+	background: url('../images/img.png') no-repeat;
+	position: absolute;
+	left: 50%;
+	margin-left: -386px;
+	top:570px;
+}
+.wraper .footer{
+	width: 680px;
+	height: 100px;
+	position: absolute;
+	left: 50%;
+	margin-left: -340px;
+	top:770px;
+}
+.wraper .footer h3{
+	text-align: center;
+	line-height: 23px;
+	height: 23px;
+	font-size: 14px;
+}
+.wraper .footer ul{
+	text-align:center;
+	margin-bottom:20px;
+}
+.navoL_li_bg P:hover{
+	background:#f1f1f1;
+}
+.navoL_li:hover .navoL_li_bg{
+	 display:block;
+}
+.navoL_li_bg{
+  width: 89px;
+  height: 61px;
+  background: url('../images/navol_bg.png') no-repeat;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  z-index: 1;
+  display: none;
+  padding-top: 8px;
+}
+.navoL_li_bg P {
+  width: 85px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 2px;
+}
+.wraper .footer ul li{
+	display:inline;
+	height:20px;
+	line-height:20px;
+	margin-right:8px;
+	
+}
+.wraper .footer ul li img{
+	display: inline-block;
+	margin-right: 5px;
+}
+.wraper .footer ol{
+	text-align:center;
+}
+.wraper .footer ol li{
+	display:inline;
+	height:20px;
+	line-height:20px;
+	margin-right:8px;
+	cursor: pointer;
+}
+.wraper .footer ol li a{
+	display:inline-block;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+#login{
+	position: relative;
+}
+#password-error{
+	position: absolute;
+	left:100px;
+	top:188px;
+	color:#fff;
+}
+#navOL{
+	height:40px;
+}
+#navOL li{
+	padding-left:15px;
+	padding-right:15px;
+	font-size:15px;
+	position: relative;
+}

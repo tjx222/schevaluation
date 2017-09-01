@@ -1,0 +1,273 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.mainbo</groupId>
+		<artifactId>jypt-parent</artifactId>
+		<version>1.0.2</version>
+		<relativePath>../pom/pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mainbo.jy</groupId>
+	<artifactId>evl-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.1-SNAPSHOT</version>
+	<repositories>
+		<!-- Nexus私服 -->
+		<repository>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://192.168.0.124:8081/nexus/content/groups/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<!-- Nexus私服 -->
+		<pluginRepository>
+			<id>central</id>
+			<name>Central</name>
+			<url>http://192.168.0.124:8081/nexus/content/repositories/central/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<properties>
+		<jy-utils.version>1.0.4</jy-utils.version>
+		<jy-test.version>1.0.1</jy-test.version>
+		<jfree.version>1.0.19</jfree.version>
+		<jetty.version>9.4.6.v20170531</jetty.version>
+		<release.args>-Dmaven.test.skip=true</release.args>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jfree</groupId>
+				<artifactId>jfreechart</artifactId>
+				<version>${jfree.version}</version>
+			</dependency>
+			<!-- 3thd lib-->
+			<dependency>
+				<groupId>com.mainbo.pageoffice</groupId>
+				<artifactId>pageoffice</artifactId>
+				<version>${pageoffice.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.mainbo.jy</groupId>
+				<artifactId>jy-utils</artifactId>
+				<version>${jy-utils.version}</version>
+			</dependency>
+		   
+			<dependency>
+				<groupId>com.mainbo.jy</groupId>
+				<artifactId>jy-test</artifactId>
+				<version>${jy-test.version}</version>
+			</dependency>
+			
+			<dependency>
+                <groupId>com.mainbo</groupId>
+                <artifactId>test</artifactId>
+               <version>${jy-test.version}</version>
+                <scope>test</scope>
+            </dependency>			
+			
+			<dependency>
+		        <groupId>org.eclipse.jetty</groupId>
+		        <artifactId>jetty-webapp</artifactId>
+		        <version>${jetty.version}</version>
+		        <scope>provided</scope>
+		    </dependency>
+		    <dependency>
+		        <groupId>org.eclipse.jetty</groupId>
+		        <artifactId>jetty-jsp</artifactId>
+		        <version>${jetty.version}</version>
+		        <scope>provided</scope>
+		    </dependency>
+	 </dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>com.mainbo.jy</groupId>
+			<artifactId>jy-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mainbo</groupId>
+			<artifactId>jsqlparser</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+	
+	   <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		
+		<!-- LOGGING begin -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<!-- common-logging 实际调用slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<!-- java.util.logging 实际调用slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+       <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+       </dependency>
+	   <dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+		</dependency>
+		
+		 <dependency>
+            <groupId>com.mortennobel</groupId>
+            <artifactId>java-image-scaling</artifactId>
+        </dependency>
+
+        <!-- jdbc driver -->
+		<dependency>
+				<groupId>${jdbc.driver.groupId}</groupId>
+				<artifactId>${jdbc.driver.artifactId}</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+		</dependency>
+		
+		<!-- httpclient-->
+		<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+		<dependency>
+		  <groupId>org.apache.httpcomponents</groupId>
+		  <artifactId>fluent-hc</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+				 <resources>
+				 	<resource>
+						 <directory>src/main/resources</directory>
+						 <includes>  
+		                    <include>**/*.*</include> 
+		                 </includes>  
+						  <excludes>
+				          	<exclude>build/*.*</exclude>
+				          </excludes>
+			      	 </resource>
+		      	 </resources>
+	</build>
+	<!-- release配置 -->
+	<profiles>
+		<profile>
+			<id>release</id>
+			<distributionManagement>
+				<repository>
+					<id>releases</id>
+					<name>Releases</name>
+					<url>http://192.168.0.124:8081/nexus/content/repositories/releases
+					</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-release-plugin</artifactId>
+							<configuration>
+								<releaseLabel>pt-evl-${project.version}</releaseLabel>
+								<username>tanjinxiang</username>
+	                			<password>5yPxINDU</password>
+								<tagBase>svn://192.168.0.204/教研平台/platform/apps/tags/</tagBase>
+								<arguments>${release.args}</arguments>
+							</configuration>
+						</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>test</id>
+			<distributionManagement>
+				<repository>
+				<!--版本需要包含-SNAPSHOT -->
+					<id>snapshots</id>
+					<name>Snapshots</name>
+					<url>http://192.168.0.124:8081/nexus/content/repositories/snapshots</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+	<scm>
+		<connection>scm:svn:svn://192.168.0.204/教研平台/platform/apps/pt-evl/evl-parent</connection>
+		<developerConnection>scm:svn:svn://192.168.0.204/教研平台/platform/apps/pt-evl/evl-parent</developerConnection>
+	</scm>
+	<modules>
+		<module>./evl-web</module>
+	</modules>
+</project>

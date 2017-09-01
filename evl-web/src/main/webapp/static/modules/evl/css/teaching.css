@@ -1,0 +1,67 @@
+body{
+	background: #f2f2f2;
+	font-family: 
+}
+.teaching_cont {
+    width: 987px;
+    height: auto;
+    margin: 0 auto 190px auto;
+}
+.teaching_cont_bottom {
+    width: 868px;
+    height: auto;
+    background: #fff;
+    padding: 0 60px 30px 60px;
+}
+.teaching_cont_bottom h3 {
+    font-size: 18px;
+    color: #4a4a4a;
+    text-align: center;
+    height: 78px;
+    line-height: 78px;
+}
+.teaching_cont_bottom ul{
+	height: 36px;
+	border-bottom:1px #26bd8a solid;
+	padding-left: 12px;	
+	margin-bottom: 22px;
+}
+.teaching_cont_bottom ul li{
+	float: left;
+	width: 103px;
+	font-size: 14px;
+	color: #4a4a4a;
+	cursor: pointer;
+	text-align: center;
+	line-height: 36px;
+	height: 36px; 
+	background: #fff;
+}
+.li_act{
+	border:1px #26bd8a solid;	
+	border-bottom: 0;
+}
+.teaching_cont_tab{
+	width: 100%;
+}
+.teaching_cont_tab tr th{
+	height: 30px;
+	line-height: 30px;
+	border-right:1px #fff solid;
+	background: #e6f0f8;
+	font-size: 14px;
+	color: #4a4a4a;
+	text-align: center;
+}
+.teaching_cont_tab tr td{
+	height: 40px;
+	line-height: 40px;
+	border-right:1px #fff solid;
+	border-bottom:1px #d3d3d3 dashed;
+	font-size: 14px;
+	color: #4a4a4a;
+	text-align: center;
+}
+.teaching_cont_tab tr td a{
+	color: #5096ff;
+}

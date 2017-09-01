@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:navs="http://www.mainbo.com/schema/navs" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.mainbo.com/schema/navs http://www.mainbo.com/schema/navs-1.0.xsd"
+>
+	<navs:nav-context>
+			<!-- 个人空间首页 -->
+		<navs:nav id="phase_select" >
+			<navs:elem name="选择学段" href="jy/uc/select" target="_self" />
+		</navs:nav>
+		
+	    <navs:nav id="index_select" extend="phase_select" >
+			<navs:elem name="空间首页" />
+		</navs:nav>
+		
+		<navs:nav id="tch_index">
+			<navs:elem name="空间首页" href="jy/evl/index" target="_self"/>
+		</navs:nav>
+		<!-- 消息 start -->
+		<navs:nav id="notice" extend="tch_index">
+			<navs:elem name="我的消息" href="jy/notice/notices?receiverState=0" />
+		</navs:nav>
+		<navs:nav id="notice_detail" extend="notice">
+			<navs:elem name="查看" href="jy/notice/notices/{:noticeId}" />
+		</navs:nav>
+		<!-- 消息 end -->
+		<navs:nav id="personal_index" extend="tch_index">
+			<navs:elem name="个人中心" />
+		</navs:nav>
+	</navs:nav-context>
+</beans>
+    
+   
+    
