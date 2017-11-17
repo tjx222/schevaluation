@@ -97,8 +97,8 @@ import net.sf.jsqlparser.statement.select.ValuesList;
 import net.sf.jsqlparser.statement.select.WithItem;
 import net.sf.jsqlparser.statement.update.Update;
 
-public class TablesNameMapFinder implements SelectVisitor, FromItemVisitor,
-    ExpressionVisitor, ItemsListVisitor, SelectItemVisitor, OrderByVisitor {
+public class TablesNameMapFinder
+    implements SelectVisitor, FromItemVisitor, ExpressionVisitor, ItemsListVisitor, SelectItemVisitor, OrderByVisitor {
 
   public static final String DEFAULT_ALIAS = "__ALIAS";
   private Map<String, String> tables;
@@ -118,8 +118,7 @@ public class TablesNameMapFinder implements SelectVisitor, FromItemVisitor,
   public Map<String, String> getTableList(Delete delete) {
     init();
     Table t = delete.getTable();
-    String alias = t.getAlias() != null ? t.getAlias().getName()
-        : DEFAULT_ALIAS;
+    String alias = t.getAlias() != null ? t.getAlias().getName() : DEFAULT_ALIAS;
     tables.put(alias, t.getBaseName());
     if (delete.getWhere() != null) {
       delete.getWhere().accept(this);
@@ -137,8 +136,7 @@ public class TablesNameMapFinder implements SelectVisitor, FromItemVisitor,
   public Map<String, String> getTableList(Insert insert) {
     init();
     Table t = insert.getTable();
-    String alias = t.getAlias() != null ? t.getAlias().getName()
-        : DEFAULT_ALIAS;
+    String alias = t.getAlias() != null ? t.getAlias().getName() : DEFAULT_ALIAS;
     tables.put(alias, t.getBaseName());
     if (insert.getSelect() != null) {
       insert.getSelect().getSelectBody().accept(this);
@@ -159,8 +157,7 @@ public class TablesNameMapFinder implements SelectVisitor, FromItemVisitor,
   public Map<String, String> getTableList(Replace replace) {
     init();
     Table t = replace.getTable();
-    String alias = t.getAlias() != null ? t.getAlias().getName()
-        : DEFAULT_ALIAS;
+    String alias = t.getAlias() != null ? t.getAlias().getName() : DEFAULT_ALIAS;
     tables.put(alias, t.getBaseName());
     if (replace.getExpressions() != null) {
       for (Expression expression : replace.getExpressions()) {
@@ -201,8 +198,7 @@ public class TablesNameMapFinder implements SelectVisitor, FromItemVisitor,
   public Map<String, String> getTableList(Update update) {
     init();
     for (Table t : update.getTables()) {
-      String alias = t.getAlias() != null ? t.getAlias().getName()
-          : DEFAULT_ALIAS;
+      String alias = t.getAlias() != null ? t.getAlias().getName() : DEFAULT_ALIAS;
       tables.put(alias, t.getBaseName());
     }
     if (update.getExpressions() != null) {
@@ -256,15 +252,17 @@ public class TablesNameMapFinder implements SelectVisitor, FromItemVisitor,
       plainSelect.getWhere().accept(this);
     }
 
+    if (plainSelect.getHaving() != null) {
+      plainSelect.getHaving().accept(this);
+    }
+
   }
 
   @Override
   public void visit(Table t) {
     String tableWholeName = t.getFullyQualifiedName();
-    if (!otherItemNames.contains(tableWholeName.toLowerCase())
-        && !tables.containsValue(tableWholeName)) {
-      String alias = t.getAlias() != null ? t.getAlias().getName()
-          : DEFAULT_ALIAS;
+    if (!otherItemNames.contains(tableWholeName.toLowerCase()) && !tables.containsValue(tableWholeName)) {
+      String alias = t.getAlias() != null ? t.getAlias().getName() : DEFAULT_ALIAS;
       tables.put(alias, t.getBaseName());
     }
   }

@@ -13,12 +13,11 @@
 	</bean>
 	<!-- json 过滤器 -->
 	<bean id="pageJsonFilter" class="com.mainbo.jy.common.web.json.PageJsonFilter"/>
-	
 	<context:property-placeholder ignore-unresolvable="true"/>
 	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven>
 		<mvc:async-support default-timeout="20000" task-executor="msgThreadPool"></mvc:async-support>
-		<mvc:message-converters register-defaults="true">
+		<mvc:message-converters register-defaults="false">
 	        <!-- StringHttpMessageConverter编码为UTF-8，防止乱码 -->
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <constructor-arg value="UTF-8"/>
@@ -37,8 +36,6 @@
                     </list>
                 </property>
             </bean>
-            <!-- 文件下载 -->
-			<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/> 
             <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
             <bean id="fastJsonHttpMessageConverter" class="com.mainbo.jy.common.web.json.FastJsonWithFilterHttpMessageConverter" >
                 <property name="serializeFilter" ref="pageJsonFilter"></property>
@@ -150,7 +147,7 @@
         <property name="contentType" value="text/html"/>
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
-   </bean>
+    </bean>
 	
     <!-- 文件上传相关 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

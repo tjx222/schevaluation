@@ -683,24 +683,6 @@ AUTO_INCREMENT=1
 
 
 -- ----------------------------
--- Table structure for sys_org_solution
--- ----------------------------
-
-CREATE TABLE `sys_org_solution` (
-`id`  int(11) NOT NULL AUTO_INCREMENT ,
-`org_id`  int(11) NULL DEFAULT NULL COMMENT '学校id' ,
-`solution_id`  int(11) NULL DEFAULT NULL ,
-`is_delete`  tinyint(1) NULL DEFAULT 0 COMMENT '是否删除' ,
-PRIMARY KEY (`id`)
-)
-ENGINE=InnoDB
-DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
-COMMENT='学校方案表'
-AUTO_INCREMENT=1
-;
-
-
--- ----------------------------
 -- Table structure for sys_organization
 -- ----------------------------
 
@@ -885,28 +867,6 @@ AUTO_INCREMENT=1
 BEGIN;
 INSERT INTO `sys_role_type` VALUES ('1', '教师', '', '6', '1,2,3,4,5,6,7,8,9,40,67,79,105,183,199,201', '2', '0', '1', '1', '1', '27', '/jy/school/tch/index'), ('2', '校长', '', '1', '6,7,36,80,8,203,205,9,207,209,11,12,13,37,40,15,90,79,111,113,105,183,195,199,201', '2', '1', '1', '0', '0', '1377', '/jy/school/mng/index'), ('3', '主任', '', '2', '6,7,36,80,8,203,205,9,207,209,11,12,13,37,40,15,90,79,111,113,105,183,199,201', '2', '1', '1', '0', '0', '1376', '/jy/school/mng/index'), ('4', '学科组长', '', '3', '6,7,36,87,8,203,205,9,207,209,11,12,13,37,40,15,90,79,113,143,105,183,199,201', '2', '1', '1', '1', '0', '1375', '/jy/school/mng/index'), ('5', '年级组长', '', '4', '6,7,36,80,8,203,205,9,207,209,11,12,13,37,40,15,90,79,113,143,105,183,199,201', '2', '1', '1', '0', '1', '1374', '/jy/school/mng/index'), ('6', '备课组长', '', '5', '6,7,36,87,8,203,205,9,207,209,11,12,13,37,40,15,90,79,113,143,105,183,199,201', '2', '1', '1', '1', '1', '1373', '/jy/school/mng/index'), ('7', '教研主任', '', '7', '210,211,212,213,214,215,216,217', '1', '1', '1', '0', '0', '1380', '/jy/area/index'), ('8', '教研员', '', '8', '210,211,212,213,214,215,216,217', '1', '1', '1', '1', '0', '1378', '/jy/area/index'), ('9', '超级管理员', '系统用户', '91', '144,145,146,147,160,161,162,163,164,165,166,167,168,169,170,171,172,173,184,188,189,190,174,175,176,177,178,179,180,181,182,185,186,187,191,192', '3', '0', '0', '0', '0', '243', '/jy/back/index'), ('10', '区域管理员', '管理员', '92', '144,145,146,147,148,155,156,157,158,161,162,163,164,165,167,168,169,174,175,176,177,178,179,180,181,182,185,186,187,191,192,193,194', '3', '0', '0', '0', '0', '2002', '/jy/back/index'), ('11', '运维管理员', '', '93', '144,146,147,148,156,157,158,165,166,167,174,175,180,181,191,192', '3', '0', '0', '0', '0', '2001', '/jy/back/index'), ('12', '学校管理员', '', '94', '144,146,148,158,165,168,170,171,172,173,184,188,189,190,174,175,185,186', '3', '0', '0', '0', '0', '2003', '/jy/back/index'), ('15', '副校长', '', '10', '6,7,36,80,8,9,11,12,13,37,40,15,90,79,111,113,105,183,195,199,201', '2', '1', '1', '0', '0', '2000', '/jy/school/mng/index'), ('17', '未知', '绩效考核用户', '0', '199', '2', '1', '1', '1', '1', '0', '');
 COMMIT;
-
--- ----------------------------
--- Table structure for sys_solution
--- ----------------------------
-
-CREATE TABLE `sys_solution` (
-`id`  int(11) NOT NULL AUTO_INCREMENT ,
-`name`  varchar(155) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
-`descs`  varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
-`crt_dttm`  date NULL DEFAULT NULL ,
-`code`  varchar(205) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
-`crt_id`  int(11) NULL DEFAULT NULL COMMENT '创建人id' ,
-`lastup_id`  int(11) NULL DEFAULT NULL COMMENT '最后修改人id' ,
-`lastup_dttm`  date NULL DEFAULT NULL COMMENT '最后修改时间' ,
-PRIMARY KEY (`id`)
-)
-ENGINE=InnoDB
-DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
-COMMENT='方案表'
-AUTO_INCREMENT=1
-
-;
 
 
 -- ----------------------------

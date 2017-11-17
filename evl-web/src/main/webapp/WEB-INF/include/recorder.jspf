@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${ctxStatic }/lib/recorder/swfobject.js"></script>
+<script type="text/javascript" src="${ctxStatic }/lib/recorder/mp3recorder.js"></script> 

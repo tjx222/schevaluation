@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:redisson="http://redisson.org/schema/redisson"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://redisson.org/schema/redisson http://redisson.org/schema/redisson/redisson.xsd">
+
+	<description>Spring Session Configuration</description>
+	<bean class="org.redisson.spring.session.config.RedissonHttpSessionConfiguration">
+	   <property name="maxInactiveIntervalInSeconds" value="1800"></property>
+	</bean>
+	<bean id="serializationCodec" class="org.redisson.codec.SerializationCodec"/>
+  <redisson:client use-linux-native-epoll="false"
+    redisson-reference-enabled="true" codec-ref="serializationCodec">
+    <qualifier value="redissonClient"></qualifier>
+    <redisson:sentinel-servers master-name="mymaster">
+       <redisson:sentinel-address value="redis://192.168.0.38:26379" />
+    </redisson:sentinel-servers>
+  </redisson:client>
+
+</beans>
+	
