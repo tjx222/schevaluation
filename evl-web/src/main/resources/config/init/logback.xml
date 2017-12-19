@@ -41,7 +41,7 @@
      	<appender-ref ref="STDOUT"/>
     </root>
     
-    <logger name="org.springframework" level="ERROR">
+    <logger name="org.springframework" level="INFO">
     </logger>
     
     <logger name="com.mainbo.jy" level="DEBUG">

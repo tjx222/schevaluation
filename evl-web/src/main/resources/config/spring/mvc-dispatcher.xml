@@ -18,38 +18,28 @@
 	<mvc:annotation-driven>
 		<mvc:async-support default-timeout="20000" task-executor="msgThreadPool"></mvc:async-support>
 		<mvc:message-converters register-defaults="false">
+		      <!-- 文件下载 -->
+          <bean
+            class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
 	        <!-- StringHttpMessageConverter编码为UTF-8，防止乱码 -->
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+          <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <constructor-arg value="UTF-8"/>
-                <property name = "supportedMediaTypes">
-                    <list>
-                        <bean class="org.springframework.http.MediaType">
-                            <constructor-arg index="0" value="text"/>
-                            <constructor-arg index="1" value="plain"/>
-                            <constructor-arg index="2" value="UTF-8"/>
-                        </bean>
-                        <bean class="org.springframework.http.MediaType">
-                            <constructor-arg index="0" value="*"/>
-                            <constructor-arg index="1" value="*"/>
-                            <constructor-arg index="2" value="UTF-8"/>
-                        </bean>
-                    </list>
-                </property>
-            </bean>
-            <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
-            <bean id="fastJsonHttpMessageConverter" class="com.mainbo.jy.common.web.json.FastJsonWithFilterHttpMessageConverter" >
+                <property name="writeAcceptCharset" value="false"></property>
+          </bean>
+          <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+          <bean id="fastJsonHttpMessageConverter" class="com.mainbo.jy.common.web.json.FastJsonWithFilterHttpMessageConverter" >
                 <property name="serializeFilter" ref="pageJsonFilter"></property>
                 <property name="supportedMediaTypes">
                     <list>
                         <value>application/json;charset=UTF-8</value>
                     </list>
                 </property>
-		      <property name="features">
-		        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
-		           <value>DisableCircularReferenceDetect</value>
-		        </array>
-		      </property>
-		   </bean>
+					      <property name="features">
+					        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
+					           <value>DisableCircularReferenceDetect</value>
+					        </array>
+					      </property>
+		     </bean>
     	</mvc:message-converters>
 	</mvc:annotation-driven>
 	
@@ -70,10 +60,9 @@
 	<mvc:resources mapping="/static/**" location="/static/"/>  
 	<mvc:default-servlet-handler/>
 
-
-	    <!-- 内容协商管理器  -->
-    <!--1、首先检查路径扩展名（如my.pdf）；2、其次检查Parameter（如my?format=pdf）；3、检查Accept Header-->
-    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+	<!-- 内容协商管理器  -->
+  <!--1、首先检查路径扩展名（如my.pdf）；2、其次检查Parameter（如my?format=pdf）；3、检查Accept Header-->
+  <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
         <property name="favorPathExtension" value="true"/>
         <!-- 用于开启 /userinfo/123?format=json 的支持 -->
