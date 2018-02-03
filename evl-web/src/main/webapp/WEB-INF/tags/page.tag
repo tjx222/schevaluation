@@ -9,7 +9,7 @@
 --%>
 <%@tag pageEncoding="UTF-8" description="分页" %>
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
-<%@ attribute name="data" type="com.mainbo.jy.common.page.PageList" required="true" description="分页数据" %>
+<%@ attribute name="data" type="com.tmser.schevaluation.common.page.PageList" required="true" description="分页数据" %>
 <%@ attribute name="url" type="java.lang.String" required="false" description="分页数据源地址" %>
 <%@ attribute name="style" type="java.lang.String" required="false" description="风格" %>
 <%@ attribute name="isAjax" type="java.lang.Boolean" required="false" description="是否ajax 分页" %>

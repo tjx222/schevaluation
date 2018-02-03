@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.mainbo.com/schema/navs"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:beans="http://www.springframework.org/schema/beans"
+		targetNamespace="http://www.mainbo.com/schema/navs"
+		elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.springframework.org/schema/beans" schemaLocation="http://www.springframework.org/schema/beans/spring-beans-3.2.xsd" />
+
+	<xsd:element name="nav-context">
+		<xsd:complexType>
+			 <xsd:choice minOccurs="0" maxOccurs="unbounded">
+					    <xsd:element ref="nav" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="nav">
+		<xsd:complexType>
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="elem" />
+		</xsd:choice>
+		<xsd:attribute name="id" type="xsd:ID" use="required"></xsd:attribute>
+		<xsd:attribute name="extend" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="rollback" type="xsd:boolean"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="elem">
+		<xsd:complexType>
+			<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="href" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="key" type="xsd:string"></xsd:attribute>
+			<xsd:attribute name="chose" type="xsd:boolean"></xsd:attribute>
+			<xsd:attribute name="target" type="xsd:string"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>

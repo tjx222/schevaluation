@@ -15,7 +15,7 @@
 	      Tests if an input roleid equals the rolename.
 	    </description>
 	    <name>checkSysRole</name>
-	    <function-class>com.mainbo.jy.uc.SysRole</function-class>
+	    <function-class>com.tmser.schevaluation.uc.SysRole</function-class>
 	    <function-signature>boolean checkSysRole(java.lang.Integer, java.lang.String)</function-signature>
 	    <example>
 	      &lt;c:if test="${jfn:checkSysRole(sysRoleid, roleName)}">
@@ -27,7 +27,7 @@
 	      Tests if an input ext equals the canViewt.
 	    </description>
 	    <name>canView</name>
-	    <function-class>com.mainbo.jy.common.web.tag.IsViewerFunction</function-class>
+	    <function-class>com.tmser.schevaluation.common.web.tag.IsViewerFunction</function-class>
 	    <function-signature>boolean isView(java.lang.String)</function-signature>
 	    <example>
 	      &lt;c:if test="${jfn:canView(ext)}">
@@ -38,7 +38,7 @@
 	      Tests if an resquest isMobile.
 	    </description>
 	    <name>isMobile</name>
-	    <function-class>com.mainbo.jy.common.utils.MobileUtils</function-class>
+	    <function-class>com.tmser.schevaluation.common.utils.MobileUtils</function-class>
 	    <function-signature>boolean isMobile()</function-signature>
 	    <example>
 	      &lt;c:if test="${jfn:isMobile()}">
@@ -49,7 +49,7 @@
 	      Tests if an resquest isTablet.
 	    </description>
 	    <name>isTablet</name>
-	    <function-class>com.mainbo.jy.common.utils.MobileUtils</function-class>
+	    <function-class>com.tmser.schevaluation.common.utils.MobileUtils</function-class>
 	    <function-signature>boolean isTablet()</function-signature>
 	    <example>
 	      &lt;c:if test="${jfn:isTablet()}">
@@ -60,7 +60,7 @@
 	      Tests if an resquest isNormal.
 	    </description>
 	    <name>isNormal</name>
-	    <function-class>com.mainbo.jy.common.utils.MobileUtils</function-class>
+	    <function-class>com.tmser.schevaluation.common.utils.MobileUtils</function-class>
 	    <function-signature>boolean isNormal()</function-signature>
 	    <example>
 	      &lt;c:if test="${jfn:isNormal()}">
@@ -71,7 +71,7 @@
 	      byte[] to String.
 	    </description>
 	    <name>decodeBase64</name>
-	    <function-class>com.mainbo.jy.utils.Encodes</function-class>
+	    <function-class>com.tmser.schevaluation.utils.Encodes</function-class>
 	    <function-signature>java.lang.String decodeBase64ToString(java.lang.String)</function-signature>
 	    <example>
 	      &lt;c:if test="${decodeBase64(input)}">
@@ -83,7 +83,7 @@
 	      read properties.
 	    </description>
 	    <name>readConfig</name>
-	    <function-class>com.mainbo.jy.manage.config.ConfigUtils</function-class>
+	    <function-class>com.tmser.schevaluation.manage.config.ConfigUtils</function-class>
 	    <function-signature>java.lang.String readConfig(java.lang.String)</function-signature>
 	    <example>
 	      &lt;c:if test="${readConfig(input)}">
@@ -94,7 +94,7 @@
 	      read config with default value.
 	    </description>
 	    <name>cfgv</name>
-	    <function-class>com.mainbo.jy.manage.config.ConfigUtils</function-class>
+	    <function-class>com.tmser.schevaluation.manage.config.ConfigUtils</function-class>
 	    <function-signature>java.lang.String readConfig(java.lang.String,java.lang.Object)</function-signature>
 	    <example>
 	      &lt;c:if test="${jfn:cfgv('config keyname','default value')}">

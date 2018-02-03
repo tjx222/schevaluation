@@ -4,7 +4,7 @@
 <%@ attribute name="type" type="java.lang.Boolean" required="false" description="要下载资源id" %>
 <%@ attribute name="filename" type="java.lang.String" required="false" description="自定义下载文件名称" %>
 <c:if test= "${jfn:cfgv('resSync.switch','off')=='on'}">
-	<jy:ds var="resource" key="${resid}" className="com.mainbo.jy.manage.resources.service.impl.ResourcesServiceImpl"></jy:ds>
+	<jy:ds var="resource" key="${resid}" className="com.tmser.schevaluation.manage.resources.service.impl.ResourcesServiceImpl"></jy:ds>
 	${jfn:cfgv('storageServer.host','')}/resource/${resource.rmsResId}/${not empty type ? 'preview' :'download' }
 </c:if>
 <c:if test= "${jfn:cfgv('resSync.switch','off')=='off'}">

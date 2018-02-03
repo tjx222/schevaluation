@@ -1,7 +1,7 @@
 <%--
 	字符串长度截取，中文字符算2个字宽
 --%>
-<%@ tag import="com.mainbo.jy.utils.StringUtils" %>
+<%@ tag import="com.tmser.schevaluation.utils.StringUtils" %>
 <%@ tag pageEncoding="UTF-8" description="字符串格式化" trimDirectiveWhitespaces="true"  %>
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
 <%@ attribute name="value" type="java.lang.String" required="true" description="要处理的字符串" %>

@@ -2,8 +2,8 @@
 //
 //import java.util.concurrent.RecursiveAction;
 //
-//import com.mainbo.jy.evl.utils.ResourceConfig;
-//import com.mainbo.jy.utils.StringUtils;
+//import com.tmser.schevaluation.evl.utils.ResourceConfig;
+//import com.tmser.schevaluation.utils.StringUtils;
 //
 //public class TestCount extends RecursiveAction{
 //	 

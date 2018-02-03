@@ -1,4 +1,4 @@
-<%@tag import="com.mainbo.jy.uc.SysRole"%>
+<%@tag import="com.tmser.schevaluation.uc.SysRole"%>
 <%@tag pageEncoding="UTF-8"%>
 <%--  
 		元数据显示标签。type: 
@@ -8,13 +8,13 @@
 					   
 --%>
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
-<%@ tag import="com.mainbo.jy.utils.SpringContextHolder" %>
-<%@ tag import="com.mainbo.jy.manage.meta.MetaUtils" %>
-<%@ tag import="com.mainbo.jy.uc.bo.UserSpace" %>
+<%@ tag import="com.tmser.schevaluation.utils.SpringContextHolder" %>
+<%@ tag import="com.tmser.schevaluation.manage.meta.MetaUtils" %>
+<%@ tag import="com.tmser.schevaluation.uc.bo.UserSpace" %>
 <%@ tag import="java.util.*" %>
-<%@ tag import="com.mainbo.jy.manage.org.service.OrganizationService" %>
-<%@ tag import="com.mainbo.jy.manage.org.bo.Organization" %>
-<%@ tag import="com.mainbo.jy.manage.meta.MetaUtils,com.mainbo.jy.manage.meta.bo.MetaRelationship" %>
+<%@ tag import="com.tmser.schevaluation.manage.org.service.OrganizationService" %>
+<%@ tag import="com.tmser.schevaluation.manage.org.bo.Organization" %>
+<%@ tag import="com.tmser.schevaluation.manage.meta.MetaUtils,com.tmser.schevaluation.manage.meta.bo.MetaRelationship" %>
 <%@ attribute name="id" type="java.lang.Integer" required="false" description="要显示元数据id" %>
 <%@ attribute name="orgId" type="java.lang.Integer" required="false" description="" %>
 <%@ attribute name="areaId" type="java.lang.Integer" required="false" description="" %>

@@ -1,4 +1,4 @@
-<%@page import="com.mainbo.jy.uc.bo.UserSpace"%>
+<%@page import="com.tmser.schevaluation.uc.bo.UserSpace"%>
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

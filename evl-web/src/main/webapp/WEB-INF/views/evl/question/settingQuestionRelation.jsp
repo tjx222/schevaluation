@@ -1,8 +1,8 @@
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.mainbo.jy.evl.bo.EvlQuestionnaires"%>
-<%@page import="com.mainbo.jy.evl.statics.EvlQuestionType"%>
+<%@page import="com.tmser.schevaluation.evl.bo.EvlQuestionnaires"%>
+<%@page import="com.tmser.schevaluation.evl.statics.EvlQuestionType"%>
 
 <c:set var="pjlx_type_1" value="<%=EvlQuestionnaires.type_xueshengpingjiao%>"/>
 <c:set var="pjlx_type_2" value="<%=EvlQuestionnaires.type_jiazhangpingjiao%>"/>

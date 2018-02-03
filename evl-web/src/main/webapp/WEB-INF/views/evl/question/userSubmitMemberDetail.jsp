@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@page import="com.mainbo.jy.evl.statics.EvlMemberStatus"%>
+	<%@page import="com.tmser.schevaluation.evl.statics.EvlMemberStatus"%>
 <c:set var="member_tijiao" value="<%=EvlMemberStatus.tijiaowenjuan.getValue()%>" />
 <html>
 <head>

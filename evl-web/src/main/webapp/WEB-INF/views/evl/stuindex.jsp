@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.mainbo.jy.evl.statics.EvlQuestionType"%>
+<%@page import="com.tmser.schevaluation.evl.statics.EvlQuestionType"%>
 	<c:set var="question_init" value="<%=EvlQuestionType.init.getValue()%>" />
 <c:set var="question_sheji1"
 	value="<%=EvlQuestionType.shejiwenjuan.getValue()%>" />

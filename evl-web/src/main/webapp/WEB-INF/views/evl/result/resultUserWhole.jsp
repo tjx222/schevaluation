@@ -22,7 +22,7 @@
 	<ui:tchTop modelName="结果"></ui:tchTop>
 	</div>
 	<jy:di key="${teacher.teacherId }"
-		className="com.mainbo.jy.uc.service.UserService" var="user" />
+		className="com.tmser.schevaluation.uc.service.UserService" var="user" />
 	<div class="jyyl_nav">
 		当前位置：
 		<c:if test="${empty teacher.flago }">

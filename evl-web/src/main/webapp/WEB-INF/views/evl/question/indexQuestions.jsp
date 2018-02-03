@@ -1,4 +1,4 @@
-<%@page import="com.mainbo.jy.evl.statics.EvlQuestionType"%>
+<%@page import="com.tmser.schevaluation.evl.statics.EvlQuestionType"%>
 <%@ include file="/WEB-INF/include/taglib.jspf"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

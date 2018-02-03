@@ -9,8 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.mainbo.jy.uc.bo.Login;
-import com.mainbo.jy.uc.bo.User;
+import com.tmser.schevaluation.uc.bo.Login;
+import com.tmser.schevaluation.uc.bo.User;
 
 /**
  * <pre>

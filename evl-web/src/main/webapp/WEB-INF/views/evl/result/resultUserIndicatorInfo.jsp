@@ -20,7 +20,7 @@
 	<ui:tchTop modelName="教师指标统计详情"></ui:tchTop>
 	</div>
 	<jy:di key="${teacher.teacherId }"
-		className="com.mainbo.jy.uc.service.UserService" var="user" />
+		className="com.tmser.schevaluation.uc.service.UserService" var="user" />
 	<c:set var="schoolYearHead" value="${empty questionnaires.title ? '无标题' : questionnaires.title }" />	
 	<div class="jyyl_nav">
 		当前位置：
