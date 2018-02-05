@@ -6,7 +6,7 @@
           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
           http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-	<bean id="defaultSchoolYearTask" class="com.mainbo.jy.task.service.SchoolYearTaskHolder">
+	<bean id="defaultSchoolYearTask" class="com.tmser.schevaluation.task.service.SchoolYearTaskHolder">
 	</bean>
 	
     <!-- 如下实现是通过线程池执行的 -->

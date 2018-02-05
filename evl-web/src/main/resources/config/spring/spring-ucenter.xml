@@ -9,11 +9,11 @@
 	<!-- 密码服务使用的加密方式，支持多种不同加密方式登录时使用 
 	   encodeServiceIndex 属性指定加密时使用的服务在列表中的索引位置
 	-->
-	<bean id="passwordService" class="com.mainbo.jy.uc.service.impl.CompositePasswordService">
+	<bean id="passwordService" class="com.tmser.schevaluation.uc.service.impl.CompositePasswordService">
 		<property name="passwordServices">
 			<list>
-				<bean class="com.mainbo.jy.uc.service.impl.NoSaltPasswordServiceImpl"></bean>
-				<bean class="com.mainbo.jy.uc.service.impl.PasswordServiceImpl"></bean>
+				<bean class="com.tmser.schevaluation.uc.service.impl.NoSaltPasswordServiceImpl"></bean>
+				<bean class="com.tmser.schevaluation.uc.service.impl.PasswordServiceImpl"></bean>
 			</list>
 		</property>
 		<property name="encodeServiceIndex" value="0" />

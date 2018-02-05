@@ -13,7 +13,7 @@ if(self != top)
 </script>
 <link rel="stylesheet" href="${ctxStatic }/modules/uc/login/css/login1.css" media="screen">
 <link rel="stylesheet" href="${ctxStatic }/lib/jquery/css/validationEngine.jquery.css" media="screen">
-<title>教研平台</title>
+<title>评教系统</title>
 </head>
 <body>
 	<shiro:user >
@@ -78,7 +78,7 @@ if(self != top)
 		</div>
 	</div> 
 	<div class="footer">
-		Copyright 2009-2014 版权所有 明博公司 京ICP备09067472号 京公网安备11010802013475号
+		Copyright 2018-2020 
 	</div>
 	</shiro:guest>
 </body>

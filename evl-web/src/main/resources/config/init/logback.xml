@@ -44,7 +44,7 @@
     <logger name="org.springframework" level="INFO">
     </logger>
     
-    <logger name="com.mainbo.jy" level="DEBUG">
+    <logger name="com.tmser.schevaluation" level="DEBUG">
     </logger>
     
 	<if condition='${log.log4jdbc.enable}'>

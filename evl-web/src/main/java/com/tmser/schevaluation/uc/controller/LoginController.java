@@ -61,47 +61,39 @@ public class LoginController extends AbstractController {
   public String loginForm(ModelMap model) {
     // 表示退出
     if (!StringUtils.isEmpty(WebThreadLocalUtils.getParameter("logout"))) {
-      model.addAttribute(Constants.MESSAGE,
-          messageSource.getMessage("user.logout.success", null, null));
+      model.addAttribute(Constants.MESSAGE, messageSource.getMessage("user.logout.success", null, null));
     }
 
     // 表示用户删除了 @see org.apache.shiro.web.filter.user.SysUserFilter
     if (!StringUtils.isEmpty(WebThreadLocalUtils.getParameter("notfound"))) {
-      model.addAttribute(Constants.ERROR,
-          messageSource.getMessage("user.notfound", null, null));
+      model.addAttribute(Constants.ERROR, messageSource.getMessage("user.notfound", null, null));
     }
 
     // 表示用户被管理员强制退出
     if (!StringUtils.isEmpty(WebThreadLocalUtils.getParameter("forcelogout"))) {
-      model.addAttribute(Constants.ERROR,
-          messageSource.getMessage("user.forcelogout", null, null));
+      model.addAttribute(Constants.ERROR, messageSource.getMessage("user.forcelogout", null, null));
     }
 
     // 表示用户输入的验证码错误
-    if (!StringUtils
-        .isEmpty(WebThreadLocalUtils.getParameter("jcaptchaError"))) {
-      model.addAttribute(Constants.ERROR,
-          messageSource.getMessage("jcaptcha.validate.error", null, null));
+    if (!StringUtils.isEmpty(WebThreadLocalUtils.getParameter("jcaptchaError"))) {
+      model.addAttribute(Constants.ERROR, messageSource.getMessage("jcaptcha.validate.error", null, null));
     }
 
     // 表示用户锁定了 @see org.apache.shiro.web.filter.user.SysUserFilter
     if (!StringUtils.isEmpty(WebThreadLocalUtils.getParameter("blocked"))) {
       // TODO 锁定原因
-      model.addAttribute(Constants.ERROR,
-          messageSource.getMessage("user.blocked", new Object[] { "" }, null));
+      model.addAttribute(Constants.ERROR, messageSource.getMessage("user.blocked", new Object[] { "" }, null));
     }
 
     if (!StringUtils.isEmpty(WebThreadLocalUtils.getParameter("unknown"))) {
-      model.addAttribute(Constants.ERROR,
-          messageSource.getMessage("user.unknown.error", null, null));
+      model.addAttribute(Constants.ERROR, messageSource.getMessage("user.unknown.error", null, null));
     }
 
     // 登录失败了 提取错误消息
     Exception shiroLoginFailureEx = (Exception) WebThreadLocalUtils
-        .getAttrbitue(
-            FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
-    if (shiroLoginFailureEx != null && StringUtils
-        .isBlank((String) WebThreadLocalUtils.getAttrbitue(Constants.ERROR))) {
+        .getAttrbitue(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
+    if (shiroLoginFailureEx != null
+        && StringUtils.isBlank((String) WebThreadLocalUtils.getAttrbitue(Constants.ERROR))) {
       if (shiroLoginFailureEx != null) {
         if (shiroLoginFailureEx instanceof UnknownAccountException
             || shiroLoginFailureEx instanceof ExcessiveAttemptsException
@@ -109,12 +101,10 @@ public class LoginController extends AbstractController {
             || shiroLoginFailureEx instanceof LockedAccountException) {
           model.addAttribute(Constants.ERROR, shiroLoginFailureEx.getMessage());
         } else if (shiroLoginFailureEx instanceof AuthenticationException) {
-          model.addAttribute(Constants.ERROR,
-              messageSource.getMessage("user.not.exists", null, null));
+          model.addAttribute(Constants.ERROR, messageSource.getMessage("user.not.exists", null, null));
           logger.error("login failed", shiroLoginFailureEx);
         } else {
-          model.addAttribute(Constants.ERROR,
-              messageSource.getMessage("user.unknown.error", null, null));
+          model.addAttribute(Constants.ERROR, messageSource.getMessage("user.unknown.error", null, null));
           logger.error("login failed", shiroLoginFailureEx);
         }
       }
@@ -132,7 +122,7 @@ public class LoginController extends AbstractController {
     if (model.containsAttribute(Constants.ERROR)) {
       model.remove(Constants.MESSAGE);
     }
-    return "forward:/index";
+    return "index";
   }
 
   @RequestMapping(value = { "/switch", "/workspace" })
@@ -143,8 +133,7 @@ public class LoginController extends AbstractController {
   @RequestMapping("/modify")
   @UseToken
   public String modify(Integer type, Model m) {
-    User us = (User) WebThreadLocalUtils
-        .getSessionAttrbitue(SessionKey.CURRENT_USER);
+    User us = (User) WebThreadLocalUtils.getSessionAttrbitue(SessionKey.CURRENT_USER);
     m.addAttribute("user", us);
     m.addAttribute("type", type);
     m.addAttribute("login", loginService.findOne(us.getId()));
@@ -156,11 +145,9 @@ public class LoginController extends AbstractController {
   @UseToken
   public Result savePwdModify(Model m, Login login, String newpassword) {
     Result re = new Result();
-    User us = (User) WebThreadLocalUtils
-        .getSessionAttrbitue(SessionKey.CURRENT_USER);
+    User us = (User) WebThreadLocalUtils.getSessionAttrbitue(SessionKey.CURRENT_USER);
     Login logins = loginService.findOne(us.getId());
-    newpassword = passwordService.encryptPassword(logins.getLoginname(),
-        newpassword, logins.getSalt());
+    newpassword = passwordService.encryptPassword(logins.getLoginname(), newpassword, logins.getSalt());
     login.setPassword(newpassword);
     login.setId(us.getId());
     loginService.update(login);
@@ -172,11 +159,9 @@ public class LoginController extends AbstractController {
 
   // 找回密码
   @RequestMapping("/findps/saveretrievepassword")
-  public String saveRetrievePassword(Model m, Login login, String newpassword,
-      Integer id) {
+  public String saveRetrievePassword(Model m, Login login, String newpassword, Integer id) {
     Login logins = loginService.findOne(id);
-    newpassword = passwordService.encryptPassword(logins.getLoginname(),
-        newpassword, logins.getSalt());
+    newpassword = passwordService.encryptPassword(logins.getLoginname(), newpassword, logins.getSalt());
     login.setPassword(newpassword);
     login.setId(id);
     loginService.update(login);
@@ -209,16 +194,13 @@ public class LoginController extends AbstractController {
   // 验证用户密码
   @RequestMapping("/findps/verifyUsePassword")
   @ResponseBody
-  public Object[] verifyUsePassword(String fieldId,
-      @RequestParam("fieldValue") String password) {
+  public Object[] verifyUsePassword(String fieldId, @RequestParam("fieldValue") String password) {
     Object[] result = new Object[2];
     result[0] = fieldId;
     result[1] = true;
-    User us = (User) WebThreadLocalUtils
-        .getSessionAttrbitue(SessionKey.CURRENT_USER);
+    User us = (User) WebThreadLocalUtils.getSessionAttrbitue(SessionKey.CURRENT_USER);
     Login logins = loginService.findOne(us.getId());
-    String passwords = passwordService.encryptPassword(logins.getLoginname(),
-        password, logins.getSalt());
+    String passwords = passwordService.encryptPassword(logins.getLoginname(), password, logins.getSalt());
     if (!passwords.equals(logins.getPassword())) {
       result[1] = false;
     }
@@ -227,8 +209,7 @@ public class LoginController extends AbstractController {
 
   @RequestMapping("/select")
   public String toSelect(Model m) {
-    UserSpace us = (UserSpace) WebThreadLocalUtils
-        .getSessionAttrbitue(SessionKey.CURRENT_SPACE);
+    UserSpace us = (UserSpace) WebThreadLocalUtils.getSessionAttrbitue(SessionKey.CURRENT_SPACE);
     us.setPhaseId(0);
     return "forward:/index";
   }
@@ -241,8 +222,7 @@ public class LoginController extends AbstractController {
    */
   @RequestMapping("/isSessionOk")
   public void isSessionOk(Model m) {
-    Object user = WebThreadLocalUtils
-        .getSessionAttrbitue(SessionKey.CURRENT_USER);
+    Object user = WebThreadLocalUtils.getSessionAttrbitue(SessionKey.CURRENT_USER);
     if (user != null) {
       m.addAttribute("invalidated", false);
     } else {

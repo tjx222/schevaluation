@@ -11,7 +11,7 @@
             overflowToDisk="false">
     </defaultCache>
     
-    <cache name="com.mainbo.jy.uc.bo.Login"
+    <cache name="com.tmser.schevaluation.uc.bo.Login"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -19,7 +19,7 @@
            overflowToDisk="false">
     </cache>
 
-    <cache name="com.mainbo.jy.uc.bo.User"
+    <cache name="com.tmser.schevaluation.uc.bo.User"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -27,7 +27,7 @@
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.uc.bo.UserSpace"
+    <cache name="com.tmser.schevaluation.uc.bo.UserSpace"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -35,7 +35,7 @@
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.manage.meta.bo.Book"
+    <cache name="com.tmser.schevaluation.manage.meta.bo.Book"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -43,7 +43,7 @@
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.manage.meta.bo.Menu"
+    <cache name="com.tmser.schevaluation.manage.meta.bo.Menu"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -51,7 +51,7 @@
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.manage.meta.bo.Icon"
+    <cache name="com.tmser.schevaluation.manage.meta.bo.Icon"
            maxEntriesLocalHeap="2000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -59,7 +59,7 @@
            overflowToDisk="false">
     </cache>
     
-   <cache name="com.mainbo.jy.manage.meta.bo.SysDic"
+   <cache name="com.tmser.schevaluation.manage.meta.bo.SysDic"
            maxEntriesLocalHeap="2000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -67,7 +67,7 @@
            overflowToDisk="false">
     </cache>
         
-   <cache name="com.mainbo.jy.manage.org.bo.Area"
+   <cache name="com.tmser.schevaluation.manage.org.bo.Area"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -75,7 +75,7 @@
            overflowToDisk="false">
     </cache>
     
-      <cache name="com.mainbo.jy.manage.org.bo.Organization"
+      <cache name="com.tmser.schevaluation.manage.org.bo.Organization"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -83,7 +83,7 @@
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.evl.bo.EvlQuestionnaires"
+    <cache name="com.tmser.schevaluation.evl.bo.EvlQuestionnaires"
            maxEntriesLocalHeap="20000"
            eternal="false"
            timeToIdleSeconds="36000"
@@ -91,13 +91,13 @@
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.evl.bo.EvlLevelWeight"
+    <cache name="com.tmser.schevaluation.evl.bo.EvlLevelWeight"
            maxEntriesLocalHeap="20000"
            eternal="true"
            overflowToDisk="false">
     </cache>
     
-    <cache name="com.mainbo.jy.schconfig.clss.bo.SchClass"
+    <cache name="com.tmser.schevaluation.schconfig.clss.bo.SchClass"
            maxEntriesLocalHeap="20000"
            eternal="true"
            overflowToDisk="false">

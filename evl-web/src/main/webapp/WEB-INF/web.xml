@@ -19,19 +19,19 @@
 		<param-value>classpath:config/init/logback.xml</param-value>
 	</context-param>
 	<listener>
-		<listener-class>com.mainbo.jy.common.web.listener.logback.LogbackConfigListener</listener-class>
+		<listener-class>com.tmser.schevaluation.common.web.listener.logback.LogbackConfigListener</listener-class>
 	</listener>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<listener>
-		<listener-class>com.mainbo.jy.common.web.listener.RequestContextListener</listener-class>
+		<listener-class>com.tmser.schevaluation.common.web.listener.RequestContextListener</listener-class>
 	</listener>
 
   <filter>
     <filter-name>requestContextFilter</filter-name>
-    <filter-class>com.mainbo.jy.common.web.listener.RequestContextFilter</filter-class>
+    <filter-class>com.tmser.schevaluation.common.web.listener.RequestContextFilter</filter-class>
     <async-supported>true</async-supported>
   </filter>
 

@@ -19,11 +19,11 @@
 				<outputDirectory>\WEB-INF\classes\</outputDirectory>
 			</fileSet>
 			<fileSet>
-				<directory>${project.basedir}\target\classes\com\mainbo\jy\evl</directory>
+				<directory>${project.basedir}\target\classes\com\tmser\schevaluation\evl</directory>
 				<includes>
 					<include>**</include>
 				</includes>
-				<outputDirectory>\WEB-INF\classes\com\mainbo\jy\evl\</outputDirectory>
+				<outputDirectory>\WEB-INF\classes\com\tmser\schevaluation\evl\</outputDirectory>
 			</fileSet>
 			<fileSet>
 				<directory>${project.basedir}\src\main\webapp</directory>

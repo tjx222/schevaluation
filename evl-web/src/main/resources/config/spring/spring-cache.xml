@@ -12,7 +12,7 @@
    
    <cache:annotation-driven cache-manager="cacheManger"/>
    
-   <bean id="cacheManger" class="com.mainbo.jy.common.cache.ehcache.CompositeEhCacheManager">
+   <bean id="cacheManger" class="com.tmser.schevaluation.common.cache.ehcache.CompositeEhCacheManager">
     <property name="cacheManagers">
         <list>
                <bean class="org.springframework.cache.ehcache.EhCacheCacheManager">  
@@ -43,10 +43,10 @@
 	<!-- 开启AOP监听 只对当前配置文件有效 -->
   <aop:aspectj-autoproxy expose-proxy="true" proxy-target-class="true"/>
     
-	<bean id="baseDaoAdvisor" class="com.mainbo.jy.common.dao.aop.BaseDaoCacheAdvisor"></bean>  
-	<!-- execution(* com.mainbo.jy..dao.impl.*(..)) and @within(com.mainbo.jy.common.dao.annotation.UseCache) -->  
+	<bean id="baseDaoAdvisor" class="com.tmser.schevaluation.common.dao.aop.BaseDaoCacheAdvisor"></bean>  
+	<!-- execution(* com.tmser.schevaluation..dao.impl.*(..)) and @within(com.tmser.schevaluation.common.dao.annotation.UseCache) -->  
    <aop:config expose-proxy="true">  
-	 <aop:pointcut id="baseDaoPointcut" expression="within(com.mainbo.jy.common.dao.BaseDAO+) and @target(com.mainbo.jy.common.dao.annotation.UseCache)
+	 <aop:pointcut id="baseDaoPointcut" expression="within(com.tmser.schevaluation.common.dao.BaseDAO+) and @target(com.tmser.schevaluation.common.dao.annotation.UseCache)
 	  and (execution( * get(..)) or execution( * update(..)) or execution( * insert(..)) or execution( * delete(..)))"/>  
 	 
 	 <aop:aspect ref="baseDaoAdvisor">  

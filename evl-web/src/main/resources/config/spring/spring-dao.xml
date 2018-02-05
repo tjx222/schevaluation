@@ -69,14 +69,14 @@
 	<tx:annotation-driven/>
 	
 	<!--  orm  分页 -->
-	<bean name="pageSqlHelper" class="com.mainbo.jy.common.page.MysqlPageSqlHelper"></bean>
+	<bean name="pageSqlHelper" class="com.tmser.schevaluation.common.page.MysqlPageSqlHelper"></bean>
 	
 	<!--  orm  sql 映射 -->
-	<bean name="sqlMapping" class="com.mainbo.jy.common.orm.DefaultSqlMapping"></bean>
+	<bean name="sqlMapping" class="com.tmser.schevaluation.common.orm.DefaultSqlMapping"></bean>
 	
 	<!--orm bo 映射扫描  -->
-	<bean class="com.mainbo.jy.common.orm.MapperScannerConfig">
-		<property name="basePackage" value="com/mainbo/jy/**/bo" />
+	<bean class="com.tmser.schevaluation.common.orm.MapperScannerConfig">
+		<property name="basePackage" value="com/tmser/schevaluation/**/bo" />
 	</bean>
 	
 	<bean id="msgThreadPool"  
@@ -105,11 +105,11 @@
 	</bean>
     
     <!-- 获取bean工具注入 -->
- <bean id="springContextHolder" class="com.mainbo.jy.utils.SpringContextHolder" lazy-init="false"/>
+ <bean id="springContextHolder" class="com.tmser.schevaluation.utils.SpringContextHolder" lazy-init="false"/>
     
- <bean id="phaseMetaProvider" class="com.mainbo.jy.manage.meta.DefaultMetaProvider.DefaultPhaseMetaProvider"></bean>
- <bean id="phaseSubjectMetaProvider" class="com.mainbo.jy.manage.meta.DefaultMetaProvider.DefaultPhaseSubjectMetaProvider"></bean>
- <bean id="phaseGradeMetaProvider" class="com.mainbo.jy.manage.meta.DefaultMetaProvider.DefaultPhaseGradeMetaProvider"></bean>
- <bean id="orgTypeMetaProvider" class="com.mainbo.jy.manage.meta.DefaultMetaProvider.DefaultOrgTypeMetaProvider"></bean>
+ <bean id="phaseMetaProvider" class="com.tmser.schevaluation.manage.meta.DefaultMetaProvider.DefaultPhaseMetaProvider"></bean>
+ <bean id="phaseSubjectMetaProvider" class="com.tmser.schevaluation.manage.meta.DefaultMetaProvider.DefaultPhaseSubjectMetaProvider"></bean>
+ <bean id="phaseGradeMetaProvider" class="com.tmser.schevaluation.manage.meta.DefaultMetaProvider.DefaultPhaseGradeMetaProvider"></bean>
+ <bean id="orgTypeMetaProvider" class="com.tmser.schevaluation.manage.meta.DefaultMetaProvider.DefaultOrgTypeMetaProvider"></bean>
 </beans>
 	

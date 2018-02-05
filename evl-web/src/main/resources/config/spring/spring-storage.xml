@@ -11,7 +11,7 @@
 	<description>storage Configuration</description>
 	
 	<!-- 存储 - 远程存储模式 
-	<bean id="storageService" class="com.mainbo.jy.storage.service.impl.StorageServiceImpl">
+	<bean id="storageService" class="com.tmser.schevaluation.storage.service.impl.StorageServiceImpl">
 	    <property name="storageUploadUrl" value="${storage_upload_url}"/>
 	    <property name="storageDownloadUrl" value="${storage_download_url}"/>
 	    <property name="tempFileUrl" value="${temp_file_url}"/>
@@ -19,7 +19,7 @@
 	</bean>
 	-->
 	<!-- 存储 - 本地存储模式 -->
-	<bean id="storageService" class="com.mainbo.jy.storage.service.impl.LocalStorageServiceImpl">
+	<bean id="storageService" class="com.tmser.schevaluation.storage.service.impl.LocalStorageServiceImpl">
 	    <property name="basePath" value="${local_file_directory:/opt/evl/fileroot}"/>
 	</bean>
 	

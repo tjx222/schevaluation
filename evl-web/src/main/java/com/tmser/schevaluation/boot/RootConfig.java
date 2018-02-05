@@ -50,7 +50,7 @@ import com.tmser.schevaluation.uc.service.impl.PasswordServiceImpl;
  * @version $Id: RootConfig.java, v 1.0 2017年11月13日 下午5:46:24 tmser Exp $
  */
 @Configuration
-@ComponentScan(basePackages = "com.mainbo", excludeFilters = {
+@ComponentScan(basePackages = "com.tmser", excludeFilters = {
     @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class) })
 @EnableCaching
 @EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
@@ -65,7 +65,7 @@ public class RootConfig extends CachingConfigurerSupport {
   @Bean
   public static MapperScannerConfig mapperScannerConfig() {
     MapperScannerConfig msc = new MapperScannerConfig();
-    msc.setBasePackage("com/mainbo/jy/**/bo");
+    msc.setBasePackage("com/tmser/schevaluation/**/bo");
     return msc;
   }
 

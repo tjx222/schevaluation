@@ -54,7 +54,7 @@
 		<dependencies>
 			<!-- 3thd lib -->
 			<dependency>
-				<groupId>com.mainbo</groupId>
+				<groupId>com.tmser</groupId>
 				<artifactId>jsqlparser</artifactId>
 				<version>${jsqlparser.version}</version>
 			</dependency>
@@ -397,7 +397,7 @@
 			<artifactId>jy-test</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.mainbo</groupId>
+			<groupId>com.tmser</groupId>
 			<artifactId>jsqlparser</artifactId>
 		</dependency>
 		
@@ -511,6 +511,11 @@
 		<dependency>
 		   <groupId>org.redisson</groupId>
 		   <artifactId>redisson</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
     

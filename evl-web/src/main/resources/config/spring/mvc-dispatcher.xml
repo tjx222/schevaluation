@@ -12,7 +12,7 @@
 	    <property name="staticField" value="com.alibaba.fastjson.serializer.SerializerFeature.DisableCircularReferenceDetect"></property>
 	</bean>
 	<!-- json 过滤器 -->
-	<bean id="pageJsonFilter" class="com.mainbo.jy.common.web.json.PageJsonFilter"/>
+	<bean id="pageJsonFilter" class="com.tmser.schevaluation.common.web.json.PageJsonFilter"/>
 	<context:property-placeholder ignore-unresolvable="true"/>
 	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven>
@@ -27,7 +27,7 @@
                 <property name="writeAcceptCharset" value="false"></property>
           </bean>
           <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
-          <bean id="fastJsonHttpMessageConverter" class="com.mainbo.jy.common.web.json.FastJsonWithFilterHttpMessageConverter" >
+          <bean id="fastJsonHttpMessageConverter" class="com.tmser.schevaluation.common.web.json.FastJsonWithFilterHttpMessageConverter" >
                 <property name="serializeFilter" ref="pageJsonFilter"></property>
                 <property name="supportedMediaTypes">
                     <list>
@@ -45,13 +45,13 @@
 	
 	<mvc:interceptors>
 	 	<!-- 防重复提交拦截器  -->
-		<bean class="com.mainbo.jy.common.web.interceptor.AvoidDuplicateSubmissionInterceptor"></bean>
+		<bean class="com.tmser.schevaluation.common.web.interceptor.AvoidDuplicateSubmissionInterceptor"></bean>
 		<!-- 视图名称拦截器 -->
-		<!-- <bean class="com.mainbo.jy.common.web.interceptor.ViewNameInterceptor"></bean> -->
+		<!-- <bean class="com.tmser.schevaluation.common.web.interceptor.ViewNameInterceptor"></bean> -->
 	</mvc:interceptors>
 	
 	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-	<context:component-scan base-package="com.mainbo.jy.**.controller" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com.tmser.schevaluation.**.controller" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	<mvc:view-controller path="/index" view-name="index" />
@@ -93,7 +93,7 @@
         <property name="defaultViews">
             <list>
                 <!--<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>-->
-                <bean class="com.mainbo.jy.common.web.json.FastJsonJsonWithFilterView" >
+                <bean class="com.tmser.schevaluation.common.web.json.FastJsonJsonWithFilterView" >
 	               <property name="serializeFilter" ref="pageJsonFilter"></property>
 	                <property name="features">
 				        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
@@ -101,7 +101,7 @@
 				        </array>
 			      </property>
                 </bean>
-                <bean class="com.mainbo.jy.common.web.json.JsonpWithFilterView" >
+                <bean class="com.tmser.schevaluation.common.web.json.JsonpWithFilterView" >
 	               <property name="serializeFilter" ref="pageJsonFilter"></property>
 	                <property name="features">
 				        <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
@@ -122,11 +122,11 @@
     </bean>
 
 	<!--  文件查看服务   -->
-	<bean class="com.mainbo.jy.manage.resources.service.impl.CompositeResViewServiceImpl">
+	<bean class="com.tmser.schevaluation.manage.resources.service.impl.CompositeResViewServiceImpl">
 		<property name="viewServices">
 			<list>
-				<bean class="com.mainbo.jy.manage.resources.service.impl.ImageResViewServiceImpl"></bean>
-				<bean class="com.mainbo.jy.manage.resources.service.impl.VideoResViewServiceImpl"></bean>
+				<bean class="com.tmser.schevaluation.manage.resources.service.impl.ImageResViewServiceImpl"></bean>
+				<bean class="com.tmser.schevaluation.manage.resources.service.impl.VideoResViewServiceImpl"></bean>
 			</list>
 		</property>
 	</bean>

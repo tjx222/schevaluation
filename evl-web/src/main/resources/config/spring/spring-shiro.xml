@@ -11,9 +11,9 @@
 	<description>Shiro Configuration</description>
 	
 	<!-- 登录监听器，监听登录成功设置相关信息 
-	<bean class="com.mainbo.jy.uc.listenner.DefaultLoginSuccesssListenner" />-->
+	<bean class="com.tmser.schevaluation.uc.listenner.DefaultLoginSuccesssListenner" />-->
 	
-	<bean id="userRealm" class="com.mainbo.jy.uc.shiro.UserRealm">
+	<bean id="userRealm" class="com.tmser.schevaluation.uc.shiro.UserRealm">
         <!-- 用切面缓存代理了 此处就不缓存了 
         <property name="authenticationCachingEnabled" value="false"/>
         <property name="authorizationCachingEnabled" value="false"/>-->
@@ -28,14 +28,14 @@
 		</property>
 	</bean>
 	
-	<bean id="formAuthenticationFilter" class="com.mainbo.jy.uc.shiro.CustomFormAutenticationFilter">
+	<bean id="formAuthenticationFilter" class="com.tmser.schevaluation.uc.shiro.CustomFormAutenticationFilter">
 	     <property name="usernameParam" value="username"/>
 	     <property name="passwordParam" value="password"/>
 	     <property name="loginUrl" value="/jy/uc/login"/>
 	     <property name="successUrl" value="/jy/uc/workspace"/>
 	</bean>
 	
-	<bean id="sysUserFilter" class="com.mainbo.jy.uc.shiro.SysUserFilter" >
+	<bean id="sysUserFilter" class="com.tmser.schevaluation.uc.shiro.SysUserFilter" >
 		<property name="unusePhaseUrlPatterns">
 		<list>
 			<value>/jy/uc/*</value>
@@ -47,7 +47,7 @@
 		</property>
 	</bean>
 	
-	<bean id="securityConfig" class="com.mainbo.jy.uc.shiro.SecurityConfigFactoryBean">
+	<bean id="securityConfig" class="com.tmser.schevaluation.uc.shiro.SecurityConfigFactoryBean">
         <property name="locations">
         	<list>
         	 	<value>classpath:/config/security/evl.ini</value>

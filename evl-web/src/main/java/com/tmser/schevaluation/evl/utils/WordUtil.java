@@ -30,7 +30,7 @@ public static void createWord(Map<?, ?> dataMap,String templateName,String fileP
         	//设置编码
             configuration.setDefaultEncoding("UTF-8");
             //ftl模板文件统一放至 com.mainbo.template 包下面
-            configuration.setClassForTemplateLoading(WordUtil.class,"/com/mainbo/jy/evl/template/");
+            configuration.setClassForTemplateLoading(WordUtil.class,"/com/tmser/schevaluation/evl/template/");
             //获取模板 
             Template template = configuration.getTemplate(templateName);
             //输出文件
